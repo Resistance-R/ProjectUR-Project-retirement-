@@ -48,36 +48,36 @@ public class PlayerController : MonoBehaviour
         Vector3 relativePosition = mousePosition - transform.position;
         float angle = Mathf.Atan2(relativePosition.y, relativePosition.x) * Mathf.Rad2Deg;
 
-        if (angle < -45f && angle >= -135f)
+        if (angle < 135f && angle >= 0f)
         {
-            // 왼쪽 위 영역
+            //  제 1사분면
+            spriter.sprite = spriteArray[0];
+            spriter.flipX = false;
+            transform.rotation = Quaternion.identity;
+        }
+
+        else if (angle >= 135f && angle <= 180f)
+        {
+            // 제 2사분면
             spriter.sprite = spriteArray[0];
             spriter.flipX = true;
-            // 뒤를 돈 캐릭터의 스프라이트를 표시 (회전 필요)   
-            transform.rotation = Quaternion.Euler(0f, 180f, -angle);
+            transform.rotation = Quaternion.identity;
         }
-        else if (angle >= -45f && angle < 45f)
+
+        else if (angle >= 135f || angle < -135f)
         {
-            // 오른쪽 위 영역
-            spriter.sprite = spriteArray[0];
-            // 뒤를 돈 스프라이트를 X축으로 Flip하여 표시
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else if (angle >= 45f && angle < 135f)
-        {
-            // 오른쪽 아래 영역
+            // 제 3사분면
             spriter.sprite = spriteArray[1];
-            // 정면을 보는 스프라이트를 표시
-            transform.rotation = Quaternion.identity;
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-        else
-        {
-            // 왼쪽 아래 영역
             spriter.flipX = true;
             transform.rotation = Quaternion.identity;
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+
+        else if (angle >= -135f && angle < -45f)
+        {
+            // 제 4사분면
+            spriter.sprite = spriteArray[1];
+            spriter.flipX = false;
+            transform.rotation = Quaternion.identity;
         }
     }
 }
