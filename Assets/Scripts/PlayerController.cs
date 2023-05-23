@@ -18,11 +18,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D myRigid;
     private SpriteRenderer spriter;
     private Vector3 mousePosition;
+    private Animator anim;
 
     void Awake()
     {
         myRigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -44,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
     void LookAtMouse()
     {
+        anim.SetFloat("Speed", inputVec.magnitude);
+        anim.SetBool("isLookingBack", false);
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 relativePosition = mousePosition - transform.position;
         float angle = Mathf.Atan2(relativePosition.y, relativePosition.x) * Mathf.Rad2Deg;
@@ -51,7 +55,8 @@ public class PlayerController : MonoBehaviour
         if (angle < 135f && angle >= 0f)
         {
             //  제 1사분면
-            spriter.sprite = spriteArray[0];
+            anim.SetBool("isLookingBack", true);
+            anim.Play("BackWalk");
             spriter.flipX = false;
             transform.rotation = Quaternion.identity;
         }
@@ -59,7 +64,8 @@ public class PlayerController : MonoBehaviour
         else if (angle >= 135f && angle <= 180f)
         {
             // 제 2사분면
-            spriter.sprite = spriteArray[0];
+            anim.SetBool("isLookingBack", true);
+            anim.Play("BackWalk");
             spriter.flipX = true;
             transform.rotation = Quaternion.identity;
         }
@@ -67,7 +73,8 @@ public class PlayerController : MonoBehaviour
         else if (angle >= 135f || angle < -135f)
         {
             // 제 3사분면
-            spriter.sprite = spriteArray[1];
+            anim.SetBool("isLookingBack", false);
+            anim.Play("Walk");
             spriter.flipX = true;
             transform.rotation = Quaternion.identity;
         }
@@ -75,7 +82,8 @@ public class PlayerController : MonoBehaviour
         else if (angle >= -135f && angle < -45f)
         {
             // 제 4사분면
-            spriter.sprite = spriteArray[1];
+            anim.SetBool("isLookingBack", false);
+            anim.Play("Walk");
             spriter.flipX = false;
             transform.rotation = Quaternion.identity;
         }

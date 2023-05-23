@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3189e9d0f0b574252b4eae3d4d839c85
-      internalID: 278475638
+      spriteID: a69cf6764f9384d5d82b105af53154ef
+      internalID: 144923688
       vertices: []
       indices: 
       edges: []
@@ -141,8 +141,8 @@ TextureImporter:
       name: Ezekiel_BackWalk_1
       rect:
         serializedVersion: 2
-        x: 44
-        y: 91
+        x: 45
+        y: 92
         width: 12
         height: 28
       alignment: 0
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7817b22fdde2d43edba08cd43f0c6188
-      internalID: 880251812
+      spriteID: 57553fbf99cba47b8a92ac3f26f187df
+      internalID: 2046843778
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbc2f2c33b92c43f7b6605d6c00ca2b1
-      internalID: 1188107677
+      spriteID: 213873d7365124e9cb6bc0d5a0ed7028
+      internalID: -324144449
       vertices: []
       indices: 
       edges: []
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0ed82315d0c84bc693219950e086bea
-      internalID: 348874041
+      spriteID: 8e6355feced484469bcaa593aa8e5abf
+      internalID: 586483875
       vertices: []
       indices: 
       edges: []
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3297d1b262d804273b974efbc453ed86
-      internalID: -790940662
+      spriteID: 1a765c8abce1445d8b25ddbd7d0af59c
+      internalID: 1516204617
       vertices: []
       indices: 
       edges: []
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3055c0d04ae249e1a75c103dadbc4d8
-      internalID: 1044816244
+      spriteID: be31f2cd9372841b39cb4b53c569e5b7
+      internalID: -2028918603
       vertices: []
       indices: 
       edges: []
@@ -257,8 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d2f86bc31869434082a275a4e459dc9
-      internalID: 487734432
+      spriteID: 97a3605e948fe4c02b7114930e5e4798
+      internalID: -1702959082
       vertices: []
       indices: 
       edges: []
@@ -278,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5a2f7e9635364145909fcaa2742df38
-      internalID: 52182335
+      spriteID: 8ee192226fa73454ca5437494b73dbea
+      internalID: 943946678
       vertices: []
       indices: 
       edges: []
@@ -299,8 +299,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ffb2903862d64eb6bda588908f3d493
-      internalID: 982963027
+      spriteID: a233e2b12f0944177a1291a34b2994c8
+      internalID: 977549055
       vertices: []
       indices: 
       edges: []
@@ -320,8 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ced01f3ec7af419eb03f55050e4209c
-      internalID: -189653348
+      spriteID: 77ae8a150e8c14658ba825137e833583
+      internalID: -1319518452
       vertices: []
       indices: 
       edges: []
@@ -341,8 +341,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 475dcc02ec68a488d82b453b586ac216
-      internalID: 853361382
+      spriteID: b571764f09d8b4cb3ae7ee7a2044bde7
+      internalID: 655392994
       vertices: []
       indices: 
       edges: []
@@ -362,8 +362,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5024a314ff420402abce46fcf045603f
-      internalID: -881799453
+      spriteID: 35f4e2f9419204aaea4cdaae6bf96550
+      internalID: -787862685
       vertices: []
       indices: 
       edges: []
@@ -383,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72bcd1ae72c5c4d3bb2378a59cef664b
-      internalID: 516590690
+      spriteID: 37bd81badef9e43428bdf87aec8dd49c
+      internalID: -1614543362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ezekiel_Unite-Sheet_13
+      name: Ezekiel_Walk_3
       rect:
         serializedVersion: 2
         x: 107
@@ -404,8 +404,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 606a12a8707c54566a103ce539406dce
-      internalID: -1037383836
+      spriteID: 3d6662b29698f4e4fb53d35dd747b9e3
+      internalID: 1154840536
       vertices: []
       indices: 
       edges: []
@@ -425,8 +425,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14261995a6aea4900bfcd56019ce48a4
-      internalID: -612162082
+      spriteID: 2fa053ec8c7a6452e9b4b164d6a6a034
+      internalID: 556240985
       vertices: []
       indices: 
       edges: []
@@ -442,21 +442,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ezekiel_Idle_3: 982963027
-      Ezekiel_Grave: -612162082
-      Ezekiel_Idle_1: 487734432
-      Ezekiel_BackWalk_0: 278475638
-      Ezekiel_Idle_0: 1044816244
-      Ezekiel_BackWalk_3: 348874041
-      Ezekiel_Idle_2: 52182335
-      Ezekiel_BackWalk_2: 1188107677
-      Ezekiel_Walk_2: 516590690
-      Ezekiel_Idle_4: -189653348
-      Ezekiel_Shadow: -790940662
-      Ezekiel_Walk_0: 853361382
-      Ezekiel_Walk_1: -881799453
-      Ezekiel_Unite-Sheet_13: -1037383836
-      Ezekiel_BackWalk_1: 880251812
+      Ezekiel_Idle_3: 977549055
+      Ezekiel_Grave: 556240985
+      Ezekiel_Idle_1: -1702959082
+      Ezekiel_BackWalk_0: 144923688
+      Ezekiel_Walk_3: 1154840536
+      Ezekiel_Idle_0: -2028918603
+      Ezekiel_BackWalk_3: 586483875
+      Ezekiel_Idle_2: 943946678
+      Ezekiel_BackWalk_2: -324144449
+      Ezekiel_Walk_2: -1614543362
+      Ezekiel_Idle_4: -1319518452
+      Ezekiel_Shadow: 1516204617
+      Ezekiel_Walk_0: 655392994
+      Ezekiel_Walk_1: -787862685
+      Ezekiel_BackWalk_1: 2046843778
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
