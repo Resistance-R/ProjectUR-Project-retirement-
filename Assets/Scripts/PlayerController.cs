@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate() 
     {
         Vector2 nextVec = inputVec * speed * Time.fixedDeltaTime;
-     myRigid.MovePosition(myRigid.position + nextVec);   
+        myRigid.MovePosition(myRigid.position + nextVec);  
     }
 
     void OnMove(InputValue value)
@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetFloat("Speed", inputVec.magnitude);
         anim.SetBool("isLookingBack", false);
+        
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 relativePosition = mousePosition - transform.position;
         float angle = Mathf.Atan2(relativePosition.y, relativePosition.x) * Mathf.Rad2Deg;
@@ -56,7 +57,17 @@ public class PlayerController : MonoBehaviour
         {
             //  제 1사분면
             anim.SetBool("isLookingBack", true);
+
+            if (inputVec.magnitude != 0)
+            {
             anim.Play("BackWalk");
+            }
+
+            else
+            {
+                spriter.sprite = spriteArray[0];
+            }
+
             spriter.flipX = false;
             transform.rotation = Quaternion.identity;
         }
@@ -65,7 +76,17 @@ public class PlayerController : MonoBehaviour
         {
             // 제 2사분면
             anim.SetBool("isLookingBack", true);
-            anim.Play("BackWalk");
+
+            if (inputVec.magnitude != 0)
+            {
+                anim.Play("BackWalk");
+            }
+
+            else
+            {
+                spriter.sprite = spriteArray[0];
+            }
+
             spriter.flipX = true;
             transform.rotation = Quaternion.identity;
         }
@@ -74,7 +95,17 @@ public class PlayerController : MonoBehaviour
         {
             // 제 3사분면
             anim.SetBool("isLookingBack", false);
-            anim.Play("Walk");
+
+            if (inputVec.magnitude != 0)
+            {
+                anim.Play("Walk");
+            }
+
+            else
+            {
+                anim.Play("Idle");
+            }
+
             spriter.flipX = true;
             transform.rotation = Quaternion.identity;
         }
@@ -83,7 +114,17 @@ public class PlayerController : MonoBehaviour
         {
             // 제 4사분면
             anim.SetBool("isLookingBack", false);
-            anim.Play("Walk");
+
+            if (inputVec.magnitude != 0)
+            {
+                anim.Play("Walk");
+            }
+
+            else
+            {
+                anim.Play("Idle");
+            }
+            
             spriter.flipX = false;
             transform.rotation = Quaternion.identity;
         }
