@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d006b964110fd4f6fb4493d9a7baf39d
+guid: 2ddbb60f9764d4b4ca35ad32a7c0d0f2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,33 +117,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Zombie_Dead_0
+      name: Skeleton_Dead_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 64
-        width: 20
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9c4efeffdbd0477d8b2fa1c5328af9a
-      internalID: 1926959713
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_Dead_1
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 65
-        width: 20
+        x: 4
+        y: 68
+        width: 21
         height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -152,40 +131,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba4ec7581daf4bf9a58c41377a30d7e
-      internalID: -1096667258
+      spriteID: 269e1cda363994313a34b19df7969bf6
+      internalID: -771996975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie_Dead_2
+      name: Skeleton_Dead_1
       rect:
         serializedVersion: 2
-        x: 70
-        y: 66
-        width: 20
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2f3171b68fcf4fe28f482296e95b851
-      internalID: 1415676613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_Dead_3
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 66
-        width: 23
+        x: 37
+        y: 68
+        width: 18
         height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -194,41 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8109c60219e234d0b864e20603ab586d
-      internalID: -1736161429
+      spriteID: 1a4ab1aba44fd44d59662eeeaa563fe6
+      internalID: 1841607548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DUMMY
+      name: Skeleton_Dead_2
       rect:
         serializedVersion: 2
-        x: 124
-        y: 61
-        width: 1
-        height: 1
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1adb06fa517df4c87a6d66a9f443d87c
-      internalID: 1377013876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_Dead_5
-      rect:
-        serializedVersion: 2
-        x: 129
+        x: 70
         y: 68
-        width: 27
-        height: 15
+        width: 17
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,125 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ea2a75532ff3418c90fc7e54a77ed3a
-      internalID: 880953722
+      spriteID: 0cef26a3ede6e4ce0b46beb756bcc584
+      internalID: -828568101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie_Dead_6
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 68
-        width: 27
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ddf2ff12e5ac4cff8b1290713620eb7
-      internalID: 1018207473
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie-Shadow
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 55
-        width: 19
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4478aee01adc4177904a8f6ffa51dbb
-      internalID: -603233781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_Walk_0
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 15
-        width: 16
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 659c0dde789264b8581d044297c8091c
-      internalID: -1634057950
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_Walk_1
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 15
-        width: 15
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 516f2337abc3e4e1fba99d3c0f761d83
-      internalID: -1328602457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_Walk_2
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 15
-        width: 15
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce890869b63264a918b395a20ba4fdc2
-      internalID: 217248437
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie_Walk_3
+      name: Skeleton_Dead_3
       rect:
         serializedVersion: 2
         x: 104
-        y: 16
-        width: 15
-        height: 26
+        y: 68
+        width: 14
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,19 +194,103 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2f8f0036fd42496598c9df54c1c66d5
-      internalID: 1909425743
+      spriteID: b187efd64c3b944c5983e7c4542bfb5a
+      internalID: 2093052807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie_Walk_4
+      name: Skeleton_Dead_4
       rect:
         serializedVersion: 2
-        x: 136
-        y: 17
-        width: 15
+        x: 137
+        y: 67
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd954561e517d4063ad904ebcc0e6bd6
+      internalID: 1376820249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Dead_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 67
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db62435a8087047bf8709f99651fa418
+      internalID: 897780476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Dead_6
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 67
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957ddf0b00d554a40bcfc72940f298c3
+      internalID: -1481168583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Dead_7
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 67
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64a46f12f97a044d6b28b5c2d129a2d3
+      internalID: -574814350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 19
+        width: 23
         height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -383,20 +299,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8be5a318ebb404256b450e894ec9ea76
-      internalID: -461451004
+      spriteID: 6d23a7e3c09ab4fb3b393777778a60d9
+      internalID: 755820722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie_Walk_5
+      name: Skeleton_Walk_0
       rect:
         serializedVersion: 2
-        x: 168
-        y: 16
-        width: 15
-        height: 26
+        x: 54
+        y: 19
+        width: 23
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -404,8 +320,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de2088bd7aadf4657a714bb2530a3e04
-      internalID: 876156854
+      spriteID: e3d91dc8e69a24676a570ed9b6e1d708
+      internalID: -1576965667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 19
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 202ba079c4b924919af7af9757318c81
+      internalID: -1582090114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 19
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe4a5ba1a5d4f4624ab21bd7139d9e60
+      internalID: 1985635132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 20
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731065cc06b8d48389da76c07b1cdf83
+      internalID: -1912666372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 20
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca8210e7fc9cf458fb5b0e91f38692aa
+      internalID: -286747657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 20
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f528f606aab904030a141c7c71d0e867
+      internalID: -1339566506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Dead_8
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 69
+        width: 2
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eafb5f0e15a064035afc6b5350ca388a
+      internalID: 1730583011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Dead_9
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 69
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9ba489cbbcb04dd884364bfce1f7146
+      internalID: -1304797076
       vertices: []
       indices: 
       edges: []
@@ -421,20 +484,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Zombie_Dead_2: 1415676613
-      Zombie_Dead_3: -1736161429
-      Zombie_Dead_1: -1096667258
-      Zombie-Shadow: -603233781
-      Zombie_Walk_4: -461451004
-      Zombie_Walk_5: 876156854
-      Zombie_Walk_1: -1328602457
-      Zombie_Dead_5: 880953722
-      Zombie_Walk_2: 217248437
-      Zombie_Dead_6: 1018207473
-      Zombie_Walk_0: -1634057950
-      DUMMY: 1377013876
-      Zombie_Walk_3: 1909425743
-      Zombie_Dead_0: 1926959713
+      Skeleton_Walk_4: -286747657
+      Skeleton_Dead_4: 1376820249
+      Skeleton_Dead_9: -1304797076
+      Skeleton_Dead_1: 1841607548
+      Skeleton_Walk_3: -1912666372
+      Skeleton_Walk_1: -1582090114
+      Skeleton_Walk_5: -1339566506
+      Skeleton_Dead_5: 897780476
+      Skeleton_Dead_3: 2093052807
+      Skeleton_Dead_0: -771996975
+      Skeleton_Walk_0: -1576965667
+      Skeleton_Dead_7: -574814350
+      Skeleton_Dead_2: -828568101
+      Skeleton_Dead_8: 1730583011
+      Skeleton_Dead_6: -1481168583
+      Skeleton_Walk_2: 1985635132
+      Skeleton_Walk_6: 755820722
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

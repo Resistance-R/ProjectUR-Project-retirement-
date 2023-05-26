@@ -12,7 +12,6 @@ public class PointerGenerator : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
 
         GameObject cursorObject = new GameObject("MousePointer");
         spriter = cursorObject.AddComponent<SpriteRenderer>();
