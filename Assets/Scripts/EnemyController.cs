@@ -42,6 +42,6 @@ public class EnemyController : MonoBehaviour
 
     private void LookAtthePlayer()
     {
-        spriter.flipX = target.position.x < enemyRigid.position.x;    
+        spriter.flipX = target.position.x < enemyRigid.position.x;
     }
-    }
+}
