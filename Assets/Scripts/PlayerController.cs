@@ -19,12 +19,15 @@ public class PlayerController : MonoBehaviour
     [Header("player's info")]
     public float HP;
     public float maxHP = 100;
+    public float Sanity;
+    public float maxSanity = 250;
     public int Lv;
     public int kill;
     public int EXP;
     public int[] nextEXP = {3, 5, 10, 100, 150, 210, 280, 360, 450, 600};
 
     private bool isInGrass;
+    private float sanityDecreaseRate;
 
     private GameManager gameManager;
     private VignetteController vignetteController;
@@ -33,26 +36,24 @@ public class PlayerController : MonoBehaviour
     private Vector3 mousePosition;
     private Animator anim;
 
-    private void Start()
-    {
-        vignetteController = GetComponentInChildren<VignetteController>();
-        gameManager = GameManager.Instance;
-        HP = maxHP;
-    }
-
     void Awake()
     {
         myRigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        vignetteController = GetComponentInChildren<VignetteController>();
+        gameManager = GameManager.Instance;
+        HP = maxHP;
+        Sanity = maxSanity;
+
+        sanityDecreaseRate = 0.5f;
     }
 
     void FixedUpdate() 
     {
         Vector2 nextVec = inputVec * speed * Time.fixedDeltaTime;
-        myRigid.MovePosition(myRigid.position + nextVec);  
-
-        Debug.Log(HP);
+        myRigid.MovePosition(myRigid.position + nextVec);
     }
 
     void OnMove(InputValue value)
@@ -63,6 +64,9 @@ public class PlayerController : MonoBehaviour
     void LateUpdate() 
     {
         LookAtMouse();
+        Sanity -= sanityDecreaseRate * Time.deltaTime;
+
+        Debug.Log(Sanity);
     }
 
     void LookAtMouse()
