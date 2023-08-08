@@ -65,8 +65,14 @@ public class PlayerController : MonoBehaviour
     {
         LookAtMouse();
         Sanity -= sanityDecreaseRate * Time.deltaTime;
+    }
 
-        Debug.Log(Sanity);
+    void Update()
+    {
+        if (Sanity <= 0)
+        {
+            gameManager.HandleSanityChange(Sanity);
+        }
     }
 
     void LookAtMouse()

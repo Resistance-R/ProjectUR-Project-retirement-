@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private aboutCamera cameraScript;
+
     public bool isLive;
 
     public static GameManager Instance;
-    void Start()
-    {
-        isLive = true;
-    }
 
     private void Awake()
     {
+        isLive = true;
+        cameraScript = Camera.main.GetComponent<aboutCamera>();
+
         if (Instance == null)
         {
             Instance = this;
@@ -24,13 +25,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public void HandleSanityChange(float sanity)
     {
-        
-    }
-
-    public void PlayerDied()
-    {
-       
+        if (sanity <= 0)
+        {
+            cameraScript.StartShake();
+        }
+        else
+        {
+            cameraScript.StopShake();
+        }
     }
 }
