@@ -28,35 +28,35 @@ public class WeaponController : MonoBehaviour
 
         gunTransform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        if(angle < 90f && angle >= 0f)
+        if (angle < 105f && angle >= -15f)
         {
-            //제 1사분면
+            // 제 1사분면
             gunSpriteRenderer.flipX = false;
             gunSpriteRenderer.flipY = false;
             gunSpriteRenderer.sortingOrder = 9;
         }
 
-        else if(angle >= 90f && angle <= 180f)
+        else if (angle >= 105f && angle <= 180f)
         {
-            //제 2사분면
+            // 제 2사분면
             gunSpriteRenderer.flipX = false;
             gunSpriteRenderer.flipY = true;
             gunSpriteRenderer.sortingOrder = 9;
         }
 
-        else if(angle >= -90f || angle < -0f)
+        else if (angle >= -135f && angle < -15f)
         {
-            //제 3사분면
+            // 제 4사분면
             gunSpriteRenderer.flipX = false;
-            gunSpriteRenderer.flipY = true;
+            gunSpriteRenderer.flipY = false; 
             gunSpriteRenderer.sortingOrder = 11;
         }
-
-        else if(angle >= -90f && angle < 90f)
+        
+        else if (angle >= 135f || angle < -135f)
         {
-            //제 4사분면
+            // 제 3사분면
             gunSpriteRenderer.flipX = false;
-            gunSpriteRenderer.flipY = false;
+            gunSpriteRenderer.flipY = true;
             gunSpriteRenderer.sortingOrder = 11;
         }
     }
