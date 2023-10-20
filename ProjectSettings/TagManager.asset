@@ -7,6 +7,7 @@ TagManager:
   - Grass
   - Zombie
   - Skelerton
+  - SARevover
   layers:
   - Default
   - TransparentFX

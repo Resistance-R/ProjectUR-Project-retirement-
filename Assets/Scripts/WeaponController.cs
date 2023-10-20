@@ -7,6 +7,14 @@ public class WeaponController : MonoBehaviour
     private Transform gunTransform;
     private SpriteRenderer gunSpriteRenderer;
 
+    public string weaponType;
+
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+
+    private float fireRate = 0.5f;
+    private float nextFire = 0f;
+
     void Start()
     {
         gunTransform = transform;
@@ -15,7 +23,15 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
+        firePoint = this.gameObject.transform;
+
         WeaponRotate();
+
+        if (Input.GetMouseButtonDown(0) && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Shoot();
+        }
     }
 
     void WeaponRotate()
@@ -28,7 +44,7 @@ public class WeaponController : MonoBehaviour
 
         gunTransform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        if (angle < 105f && angle >= -15f)
+        if (angle < 135f && angle >= 0f)
         {
             // 제 1사분면
             gunSpriteRenderer.flipX = false;
@@ -36,7 +52,7 @@ public class WeaponController : MonoBehaviour
             gunSpriteRenderer.sortingOrder = 9;
         }
 
-        else if (angle >= 105f && angle <= 180f)
+        else if (angle >= 135f && angle <= 180f)
         {
             // 제 2사분면
             gunSpriteRenderer.flipX = false;
@@ -44,7 +60,7 @@ public class WeaponController : MonoBehaviour
             gunSpriteRenderer.sortingOrder = 9;
         }
 
-        else if (angle >= -135f && angle < -15f)
+        else if (angle >= -135f && angle < -45f)
         {
             // 제 4사분면
             gunSpriteRenderer.flipX = false;
@@ -58,6 +74,19 @@ public class WeaponController : MonoBehaviour
             gunSpriteRenderer.flipX = false;
             gunSpriteRenderer.flipY = true;
             gunSpriteRenderer.sortingOrder = 11;
+        }
+    }
+
+    void Shoot()
+    {
+        if (weaponType == "SARevolver")
+        {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        }
+        if (weaponType == "DARevolver")
+        {
+            // 예를 들어, 발사 간격을 길게 설정
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         }
     }
 }
