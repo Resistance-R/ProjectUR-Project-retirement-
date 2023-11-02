@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private aboutCamera cameraScript;
 
     public bool isLive;
+    public float weaponDamage;
 
     public static GameManager Instance;
 
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {

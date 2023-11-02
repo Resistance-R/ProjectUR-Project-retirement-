@@ -8,6 +8,7 @@ TagManager:
   - Zombie
   - Skelerton
   - SARevover
+  - Bullet
   layers:
   - Default
   - TransparentFX

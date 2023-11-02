@@ -8,12 +8,18 @@ public class WeaponController : MonoBehaviour
     private SpriteRenderer gunSpriteRenderer;
 
     public string weaponType;
+    public float weaponDamage;
 
     public GameObject bulletPrefab;
     public Transform firePoint;
 
     private float fireRate = 0.5f;
     private float nextFire = 0f;
+
+    private int pellets = 3;
+    private float spreadAngle = 20f;
+    private float bulletSpeed = 10f;
+
 
     void Start()
     {
@@ -23,8 +29,6 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        firePoint = this.gameObject.transform;
-
         WeaponRotate();
 
         if (Input.GetMouseButtonDown(0) && Time.time > nextFire)
@@ -82,11 +86,32 @@ public class WeaponController : MonoBehaviour
         if (weaponType == "SARevolver")
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            GameManager.Instance.weaponDamage = 10f;
+
         }
+
         if (weaponType == "DARevolver")
         {
-            // 예를 들어, 발사 간격을 길게 설정
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            GameManager.Instance.weaponDamage = 15f;
+        }
+
+        if (weaponType == "DBShotgun")
+        {
+            for (int i = 0; i < pellets; i++)
+            {
+                float randomSpread = Random.Range(-spreadAngle, spreadAngle);
+
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+                bullet.transform.rotation = Quaternion.Euler(0, 0, firePoint.eulerAngles.z * randomSpread * 100);
+
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.velocity = bullet.transform.right * bulletSpeed;
+            }
+            GameManager.Instance.weaponDamage = 10f;
         }
     }
 }
