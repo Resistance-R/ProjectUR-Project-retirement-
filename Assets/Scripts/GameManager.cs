@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public float weaponDamage;
 
     public static GameManager Instance;
+    public PoolManager pool;
+    public PlayerController player;
 
     private void Awake()
     {

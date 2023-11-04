@@ -83,7 +83,30 @@ public class EnemyController : MonoBehaviour
             spriter.sortingOrder = -2;
             coll.enabled = false;
             anim.SetTrigger("Dead");
+            DestroyShadow();
         }
+    }
+
+    private void DestroyShadow()
+    {
+        GameObject enemy = this.gameObject;
+        Transform shadow = enemy.transform.Find("Shadow");
+
+        if(shadow != null)
+        {
+            Destroy(shadow.gameObject);
+        }
+
+    }
+
+    public void DestroyDeadbody()
+    {
+        gameObject.SetActive(false);
+    }
+
+    void OnEnable()
+    {
+        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();    
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

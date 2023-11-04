@@ -41,8 +41,21 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 1926959713, guid: d006b964110fd4f6fb4493d9a7baf39d, type: 3}
+    - {fileID: -1096667258, guid: d006b964110fd4f6fb4493d9a7baf39d, type: 3}
+    - {fileID: 1415676613, guid: d006b964110fd4f6fb4493d9a7baf39d, type: 3}
+    - {fileID: -1736161429, guid: d006b964110fd4f6fb4493d9a7baf39d, type: 3}
+    - {fileID: 880953722, guid: d006b964110fd4f6fb4493d9a7baf39d, type: 3}
+    - {fileID: 1018207473, guid: d006b964110fd4f6fb4493d9a7baf39d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -69,7 +82,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.41666666
-    functionName: Dead
+    functionName: DestroyDeadbody
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
