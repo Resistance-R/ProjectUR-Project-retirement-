@@ -57,7 +57,10 @@ public class EnemyController : MonoBehaviour
 
     private void LookAtthePlayer()
     {
-        spriter.flipX = target.position.x < enemyRigid.position.x;
+        if(isLive)
+        {
+            spriter.flipX = target.position.x < enemyRigid.position.x;
+        }
     }
 
     public void Live()
@@ -73,7 +76,7 @@ public class EnemyController : MonoBehaviour
 
     public void Dead()
     {
-        if(curruntHP <= 0f)
+        if(isLive && curruntHP <= 0f)
         {
             isLive = false;
             enemyRigid.simulated = false;
