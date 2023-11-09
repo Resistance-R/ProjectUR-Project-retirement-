@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
     private SpriteRenderer spriter;
     private Animator anim;
 
+    public RuntimeAnimatorController[] animCon;
+
     public float maxHP = 100f;
     private float curruntHP;
 
@@ -106,7 +108,17 @@ public class EnemyController : MonoBehaviour
 
     void OnEnable()
     {
-        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();    
+        target = GameManager.Instance.player.GetComponent<Rigidbody2D>(); 
+        isLive = true;
+        curruntHP = maxHP;
+    }
+
+    public void Init(SpawnData data)
+    {
+        anim.runtimeAnimatorController = animCon[data.spriteType];
+        speed = data.speed;
+        maxHP = data.health;
+        curruntHP = data.health;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -115,6 +127,5 @@ public class EnemyController : MonoBehaviour
         {
             curruntHP -= GameManager.Instance.weaponDamage;
         }
-        Debug.Log(curruntHP);
     }
 }

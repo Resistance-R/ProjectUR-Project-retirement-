@@ -8,7 +8,7 @@ public class aboutCamera : MonoBehaviour
     private bool isShaking = false;
 
     private float shakeDuration = 0.3f;
-    private float shakeMagnitude = 0.1f;
+    public float shakeMagnitude = 0.1f;
 
     private void Start()
     {

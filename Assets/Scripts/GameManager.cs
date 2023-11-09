@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public float weaponDamage;
 
     public static GameManager Instance;
+    public float gameTime;
+    public float maxGameTime = 2 * 10f;
     public PoolManager pool;
     public PlayerController player;
 
@@ -26,6 +28,16 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    void Update()
+    {
+        gameTime += Time.deltaTime;
+
+        if (gameTime > maxGameTime)
+        {
+            gameTime = maxGameTime;
         }
     }
 

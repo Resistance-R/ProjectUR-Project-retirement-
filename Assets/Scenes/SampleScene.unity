@@ -4583,6 +4583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLive: 0
   weaponDamage: 0
+  gameTime: 0
+  maxGameTime: 20
   pool: {fileID: 789438153}
   player: {fileID: 1743363379}
 --- !u!4 &188417633
@@ -12737,6 +12739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95872a0d2000e4ca68a2f6c158a7d998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraScript: {fileID: 0}
   weaponType: DBShotgun
   weaponDamage: 0
   bulletPrefab: {fileID: 3541388450929994000, guid: 9dae462171f4a4981a6d826b78284109, type: 3}
@@ -14383,7 +14386,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 3.03125
+  orthographic size: 2.9296875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19543,6 +19546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95872a0d2000e4ca68a2f6c158a7d998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraScript: {fileID: 0}
   weaponType: SARevolver
   weaponDamage: 0
   bulletPrefab: {fileID: 3541388450929994000, guid: 9dae462171f4a4981a6d826b78284109, type: 3}
@@ -20926,6 +20930,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: []
+  spawnData:
+  - spawnTime: 0.7
+    spriteType: 0
+    health: 120
+    speed: 0.7
+  - spawnTime: 0.5
+    spriteType: 1
+    health: 90
+    speed: 1
 --- !u!1 &739795093
 GameObject:
   m_ObjectHideFlags: 0
@@ -22761,7 +22774,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 7312957732825884833, guid: 43eeab4b8fdfc4e52852bcd3b3da06eb, type: 3}
-  - {fileID: 4860782606683937192, guid: e4b311c06a8384be3954088be3b57c74, type: 3}
 --- !u!4 &789438154
 Transform:
   m_ObjectHideFlags: 0
@@ -82552,6 +82564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95872a0d2000e4ca68a2f6c158a7d998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraScript: {fileID: 0}
   weaponType: DARevolver
   weaponDamage: 0
   bulletPrefab: {fileID: 3541388450929994000, guid: 9dae462171f4a4981a6d826b78284109, type: 3}

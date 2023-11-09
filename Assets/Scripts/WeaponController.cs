@@ -6,6 +6,7 @@ public class WeaponController : MonoBehaviour
 {
     private Transform gunTransform;
     private SpriteRenderer gunSpriteRenderer;
+    private aboutCamera cameraScript;
 
     public string weaponType;
     public float weaponDamage;
@@ -25,6 +26,7 @@ public class WeaponController : MonoBehaviour
     {
         gunTransform = transform;
         gunSpriteRenderer = GetComponent<SpriteRenderer>();
+        cameraScript = Camera.main.GetComponent<aboutCamera>();
     }
 
     void Update()
@@ -81,18 +83,28 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+    IEnumerator ShakeForDuration(float duration)
+    {
+        cameraScript.StartShake();
+        yield return new WaitForSeconds(duration);
+        cameraScript.StopShake();
+    }
+
     void Shoot()
     {
         if (weaponType == "SARevolver")
         {
+            cameraScript.shakeMagnitude = 0.07f;
+            StartCoroutine(ShakeForDuration(0.05f));
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             GameManager.Instance.weaponDamage = 10f;
-
         }
 
         if (weaponType == "DARevolver")
         {
+            cameraScript.shakeMagnitude = 0.07f;
+            StartCoroutine(ShakeForDuration(0.05f));
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             GameManager.Instance.weaponDamage = 15f;
@@ -112,6 +124,8 @@ public class WeaponController : MonoBehaviour
                 rb.velocity = bullet.transform.right * bulletSpeed;
             }
             GameManager.Instance.weaponDamage = 10f;
+            cameraScript.shakeMagnitude = 0.1f;
+            StartCoroutine(ShakeForDuration(0.05f));
         }
     }
 }

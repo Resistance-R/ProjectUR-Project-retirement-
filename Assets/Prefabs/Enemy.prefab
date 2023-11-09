@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7312957732825884844}
   - component: {fileID: 7312957732825884843}
   m_Layer: 0
-  m_Name: Zombie
+  m_Name: Enemy
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,9 +158,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8521dec3d924fa180e6d086ee43389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0
   target: {fileID: 0}
   isLive: 0
+  animCon:
+  - {fileID: 9100000, guid: 8a36dbaa11b5b4f12ac519012130e10b, type: 2}
+  - {fileID: 9100000, guid: 2e03bd6c19ca441da82dd5b2e5871386, type: 2}
   maxHP: 100
 --- !u!1 &7312957732881976827
 GameObject:
