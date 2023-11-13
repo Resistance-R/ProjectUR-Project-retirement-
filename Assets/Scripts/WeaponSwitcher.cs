@@ -28,6 +28,21 @@ public class WeaponSwitcher : MonoBehaviour
         {
             SwitchWeapon(2);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SwitchWeapon(3);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            SwitchWeapon(4);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            SwitchWeapon(5);
+        }
     }
 
     private void SwitchWeapon(int newIndex)

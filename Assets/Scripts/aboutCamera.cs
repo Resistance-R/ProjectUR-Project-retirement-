@@ -5,6 +5,7 @@ using UnityEngine;
 public class aboutCamera : MonoBehaviour
 {
     private Transform originalCameraTransform;
+    private Vector3 originalCameraPos;
     private bool isShaking = false;
 
     private float shakeDuration = 0.3f;
@@ -13,6 +14,7 @@ public class aboutCamera : MonoBehaviour
     private void Start()
     {
         originalCameraTransform = transform;
+        originalCameraPos = new Vector3(0, 0, -10);
     }
 
     private void Update()
@@ -34,5 +36,6 @@ public class aboutCamera : MonoBehaviour
     {
         isShaking = false;
         transform.position = originalCameraTransform.position;
+        transform.localPosition = originalCameraPos;
     }
 }

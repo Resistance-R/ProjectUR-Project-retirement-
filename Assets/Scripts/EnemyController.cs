@@ -128,4 +128,12 @@ public class EnemyController : MonoBehaviour
             curruntHP -= GameManager.Instance.weaponDamage;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Explosion"))
+        {
+            curruntHP -= 150f;
+        }
+    }
 }

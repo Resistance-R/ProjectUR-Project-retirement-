@@ -9,6 +9,9 @@ TagManager:
   - Skelerton
   - SARevover
   - Bullet
+  - Buliding
+  - Fence
+  - Explosion
   layers:
   - Default
   - TransparentFX

@@ -33,7 +33,7 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Zombie" || collision.collider.tag == "Skelerton")
+        if(collision.collider.tag == "Zombie" || collision.collider.tag == "Skelerton" || collision.collider.tag == "Fence" || collision.collider.tag == "Buliding")
         {
             Destroy(this.gameObject);
         }

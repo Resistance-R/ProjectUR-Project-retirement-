@@ -12,6 +12,7 @@ public class WeaponController : MonoBehaviour
     public float weaponDamage;
 
     public GameObject bulletPrefab;
+    public GameObject dynamitePrefab;
     public Transform firePoint;
 
     private float fireRate = 0.5f;
@@ -92,25 +93,23 @@ public class WeaponController : MonoBehaviour
 
     void Shoot()
     {
-        if (weaponType == "SARevolver")
+        if(weaponType == "SARevolver")
         {
-            cameraScript.shakeMagnitude = 0.07f;
+            cameraScript.shakeMagnitude = 0.03f;
             StartCoroutine(ShakeForDuration(0.05f));
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             GameManager.Instance.weaponDamage = 10f;
         }
 
-        if (weaponType == "DARevolver")
+        if(weaponType == "DARevolver")
         {
-            cameraScript.shakeMagnitude = 0.07f;
+            cameraScript.shakeMagnitude = 0.03f;
             StartCoroutine(ShakeForDuration(0.05f));
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             GameManager.Instance.weaponDamage = 15f;
         }
 
-        if (weaponType == "DBShotgun")
+        if(weaponType == "DBShotgun")
         {
             for (int i = 0; i < pellets; i++)
             {
@@ -118,14 +117,45 @@ public class WeaponController : MonoBehaviour
 
                 GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-                bullet.transform.rotation = Quaternion.Euler(0, 0, firePoint.eulerAngles.z * randomSpread * 100);
+                bullet.transform.rotation = Quaternion.Euler(0, 0, firePoint.eulerAngles.z * randomSpread * 3000);
 
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.velocity = bullet.transform.right * bulletSpeed;
             }
             GameManager.Instance.weaponDamage = 10f;
-            cameraScript.shakeMagnitude = 0.1f;
+            cameraScript.shakeMagnitude = 0.04f;
             StartCoroutine(ShakeForDuration(0.05f));
+        }
+
+        if(weaponType == "PAShotgun")
+        {
+            for (int i = 0; i < pellets; i++)
+            {
+                float randomSpread = Random.Range(-spreadAngle, spreadAngle);
+
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+                bullet.transform.rotation = Quaternion.Euler(0, 0, firePoint.eulerAngles.z * randomSpread * 3000);
+
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.velocity = bullet.transform.right * bulletSpeed;
+            }
+            GameManager.Instance.weaponDamage = 7f;
+            cameraScript.shakeMagnitude = 0.04f;
+            StartCoroutine(ShakeForDuration(0.05f));
+        }
+
+        if(weaponType == "LARifle")
+        {
+            cameraScript.shakeMagnitude = 0.03f;
+            StartCoroutine(ShakeForDuration(0.05f));
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            GameManager.Instance.weaponDamage = 20f;
+        }
+
+        if(weaponType == "Dynamite")
+        {
+            GameObject bomb = Instantiate(dynamitePrefab, firePoint.position, Quaternion.identity);
         }
     }
 }
