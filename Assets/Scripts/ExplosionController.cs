@@ -30,6 +30,7 @@ public class ExplosionController : MonoBehaviour
         CircleCollider2D explosionCollider = gameObject.AddComponent<CircleCollider2D>();
         explosionCollider.isTrigger = true;
         explosionCollider.radius = explosionRadius;
+        GameManager.Instance.weaponDamage = 150f;
 
         StartCoroutine(DestroyCollider(0.1f));
     }

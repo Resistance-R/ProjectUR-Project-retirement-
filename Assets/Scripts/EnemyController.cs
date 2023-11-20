@@ -133,7 +133,7 @@ public class EnemyController : MonoBehaviour
     {
         if(other.CompareTag("Explosion"))
         {
-            curruntHP -= 150f;
+            curruntHP -= GameManager.Instance.weaponDamage;
         }
     }
 }

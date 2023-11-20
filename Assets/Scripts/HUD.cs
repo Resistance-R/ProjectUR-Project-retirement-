@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType{EXP, Lv, Kill, Time, HP, Sanity}
+    public enum InfoType{EXP, Lv, Kill, Time, HP, Sanity, curAmmo, maxAmmo}
     public InfoType type;
+
+    private PlayerController PC;
 
     Text myText;
     Slider mySlider;
@@ -14,11 +16,12 @@ public class HUD : MonoBehaviour
     private void Awake()
     {
         myText = GetComponent<Text>();
-        mySlider = GetComponentInChildren<Slider>(); ;   
+        mySlider = GetComponentInChildren<Slider>();
     }
 
     private void LateUpdate()
     {
+
         switch (type) 
         {
             case InfoType.EXP:
@@ -52,6 +55,39 @@ public class HUD : MonoBehaviour
                 mySlider.value = curSaity;
 
                 break;
+
+            case InfoType.curAmmo:
+
+                    if(GameManager.Instance.isLive)
+                    {
+                        WeaponController activeWeapon = FindObjectOfType<WeaponController>();
+                        myText.text = activeWeapon.currentAmmo.ToString();
+                    }
+
+                break;
+
+            case InfoType.maxAmmo:
+
+                if(GameManager.Instance.isLive)
+                {
+                    WeaponController activeWeaponMaxAmmo = GetActiveWeapon();
+                    myText.text = activeWeaponMaxAmmo.gunAttributes.maxAmmo.ToString();
+                }
+
+                break;
         }    
+    }
+
+    private WeaponController GetActiveWeapon()
+    {
+        WeaponController[] weapons = FindObjectsOfType<WeaponController>();
+        foreach (var weapon in weapons)
+        {
+            if (weapon.gameObject.activeSelf)
+            {
+                return weapon;
+            }
+        }
+        return null;
     }
 }

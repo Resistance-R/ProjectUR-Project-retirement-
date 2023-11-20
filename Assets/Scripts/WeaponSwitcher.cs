@@ -45,8 +45,16 @@ public class WeaponSwitcher : MonoBehaviour
         }
     }
 
-    private void SwitchWeapon(int newIndex)
+    public void SwitchWeapon(int newIndex)
     {
+        WeaponController currentWeapon = weapons[currentWeaponIndex].GetComponent<WeaponController>();
+
+        if (currentWeapon != null)
+        {
+            currentWeapon.StopReloadCoroutine();
+            currentWeapon.ResetReloadingState();
+        }
+
         weapons[currentWeaponIndex].SetActive(false);
 
         weapons[newIndex].SetActive(true);

@@ -7,37 +7,49 @@ public class WeaponController : MonoBehaviour
     private Transform gunTransform;
     private SpriteRenderer gunSpriteRenderer;
     private aboutCamera cameraScript;
+    private Coroutine reloadCoroutine;
 
     public string weaponType;
     public float weaponDamage;
+    public int currentAmmo;
+    public GunAttributes gunAttributes;
 
     public GameObject bulletPrefab;
     public GameObject dynamitePrefab;
     public Transform firePoint;
 
-    private float fireRate = 0.5f;
-    private float nextFire = 0f;
-
     private int pellets = 3;
     private float spreadAngle = 20f;
     private float bulletSpeed = 10f;
-
+    private bool isReloading = false;
 
     void Start()
     {
         gunTransform = transform;
         gunSpriteRenderer = GetComponent<SpriteRenderer>();
         cameraScript = Camera.main.GetComponent<aboutCamera>();
+        InitializeGun();
     }
 
     void Update()
     {
         WeaponRotate();
 
-        if (Input.GetMouseButtonDown(0) && Time.time > nextFire)
+        if (Input.GetMouseButtonDown(0) && Time.time > gunAttributes.nextFire)
         {
-            nextFire = Time.time + fireRate;
             Shoot();
+            gunAttributes.nextFire = Time.time + gunAttributes.fireRate;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) || currentAmmo == 0)
+        {
+            StartCoroutine(Reload());
+        }
+
+        if(!gameObject.activeSelf)
+        {
+            StopCoroutine(Reload());
+            isReloading = false;
         }
     }
 
@@ -91,71 +103,144 @@ public class WeaponController : MonoBehaviour
         cameraScript.StopShake();
     }
 
-    void Shoot()
+    IEnumerator Reload()
+    {
+        if (!isReloading && currentAmmo < gunAttributes.maxAmmo)
+        {
+            isReloading = true;
+            currentAmmo = 0;
+
+            if (reloadCoroutine != null)
+            {
+                StopCoroutine(reloadCoroutine);
+            }
+
+            reloadCoroutine = StartCoroutine(ReloadCoroutine());
+            yield return reloadCoroutine;
+
+            isReloading = false;
+        }
+    }
+    
+    IEnumerator ReloadCoroutine()
+    {
+        yield return new WaitForSeconds(gunAttributes.reloadTime);
+
+        currentAmmo = gunAttributes.maxAmmo;
+        reloadCoroutine = null;
+    }
+
+    public void InitializeGun()
+    {
+        currentAmmo = gunAttributes.maxAmmo;
+        isReloading = false;
+        gunAttributes.nextFire = 0f;
+    }
+
+    public void StopReloadCoroutine()
+    {
+        if (reloadCoroutine != null)
+        {
+            StopCoroutine(reloadCoroutine);
+        }
+    }
+
+    public void ResetReloadingState()
+    {
+        isReloading = false;
+    }
+
+    private void Shoot()
     {
         if(weaponType == "SARevolver")
         {
-            cameraScript.shakeMagnitude = 0.03f;
-            StartCoroutine(ShakeForDuration(0.05f));
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            GameManager.Instance.weaponDamage = 10f;
+            if(currentAmmo > 0)
+            {
+                currentAmmo--;
+                cameraScript.shakeMagnitude = 0.03f;
+                StartCoroutine(ShakeForDuration(0.05f));
+                Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                GameManager.Instance.weaponDamage = 10f;
+            }
         }
 
         if(weaponType == "DARevolver")
         {
-            cameraScript.shakeMagnitude = 0.03f;
-            StartCoroutine(ShakeForDuration(0.05f));
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            GameManager.Instance.weaponDamage = 15f;
+            if (currentAmmo > 0)
+            {
+                currentAmmo--;
+                cameraScript.shakeMagnitude = 0.03f;
+                StartCoroutine(ShakeForDuration(0.05f));
+                Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                GameManager.Instance.weaponDamage = 15f;
+            }
         }
 
         if(weaponType == "DBShotgun")
         {
-            for (int i = 0; i < pellets; i++)
+            if (currentAmmo > 0)
             {
-                float randomSpread = Random.Range(-spreadAngle, spreadAngle);
+                currentAmmo--;
 
-                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+                for (int i = 0; i < pellets; i++)
+                {
+                    float randomSpread = Random.Range(-spreadAngle, spreadAngle);
 
-                bullet.transform.rotation = Quaternion.Euler(0, 0, firePoint.eulerAngles.z * randomSpread * 3000);
+                    GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.velocity = bullet.transform.right * bulletSpeed;
+                    bullet.transform.rotation = Quaternion.Euler(0, 0, firePoint.eulerAngles.z * randomSpread * 3000);
+
+                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    rb.velocity = bullet.transform.right * bulletSpeed;
+                }
+                GameManager.Instance.weaponDamage = 10f;
+                cameraScript.shakeMagnitude = 0.04f;
+                StartCoroutine(ShakeForDuration(0.05f));
             }
-            GameManager.Instance.weaponDamage = 10f;
-            cameraScript.shakeMagnitude = 0.04f;
-            StartCoroutine(ShakeForDuration(0.05f));
         }
 
         if(weaponType == "PAShotgun")
         {
-            for (int i = 0; i < pellets; i++)
+            if (currentAmmo > 0)
             {
-                float randomSpread = Random.Range(-spreadAngle, spreadAngle);
+                currentAmmo--;
 
-                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+                for (int i = 0; i < pellets; i++)
+                {
+                    float randomSpread = Random.Range(-spreadAngle, spreadAngle);
 
-                bullet.transform.rotation = Quaternion.Euler(0, 0, firePoint.eulerAngles.z * randomSpread * 3000);
+                    GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.velocity = bullet.transform.right * bulletSpeed;
+                    bullet.transform.rotation = Quaternion.Euler(0, 0, firePoint.eulerAngles.z * randomSpread * 3000);
+
+                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    rb.velocity = bullet.transform.right * bulletSpeed;
+                }
+                GameManager.Instance.weaponDamage = 7f;
+                cameraScript.shakeMagnitude = 0.04f;
+                StartCoroutine(ShakeForDuration(0.05f));
             }
-            GameManager.Instance.weaponDamage = 7f;
-            cameraScript.shakeMagnitude = 0.04f;
-            StartCoroutine(ShakeForDuration(0.05f));
         }
 
         if(weaponType == "LARifle")
         {
-            cameraScript.shakeMagnitude = 0.03f;
-            StartCoroutine(ShakeForDuration(0.05f));
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            GameManager.Instance.weaponDamage = 20f;
+            if (currentAmmo > 0)
+            {
+                currentAmmo--;
+                cameraScript.shakeMagnitude = 0.03f;
+                StartCoroutine(ShakeForDuration(0.05f));
+                Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                GameManager.Instance.weaponDamage = 20f;
+            }
         }
 
         if(weaponType == "Dynamite")
         {
-            GameObject bomb = Instantiate(dynamitePrefab, firePoint.position, Quaternion.identity);
+            if(currentAmmo > 0)
+            {
+                currentAmmo--;
+                GameObject bomb = Instantiate(dynamitePrefab, firePoint.position, Quaternion.identity);
+            }
         }
     }
 }

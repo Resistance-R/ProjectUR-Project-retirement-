@@ -202,7 +202,6 @@ public class PlayerController : MonoBehaviour
 
                 anim.SetTrigger("Dead");
                 GameManager.Instance.isLive = false;
-
                 myRigid.constraints = RigidbodyConstraints2D.FreezePosition;
             }
         }
