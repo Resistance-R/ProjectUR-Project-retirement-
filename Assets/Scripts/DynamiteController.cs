@@ -10,6 +10,8 @@ public class DynamiteController : MonoBehaviour
     private bool isRotate = true;
     private aboutCamera cameraScript;
 
+    public GunAttributes gunAttributes;
+
     public bool isExplode = false;
 
     void Start()
@@ -18,10 +20,12 @@ public class DynamiteController : MonoBehaviour
         anim = GetComponent<Animator>();
         cameraScript = Camera.main.GetComponent<aboutCamera>();
 
+        gunAttributes = ScriptableObject.CreateInstance<GunAttributes>();
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePosition - transform.position).normalized;
         dynamiteRigid.velocity = direction * dynamiteSpeed;
-        GameManager.Instance.weaponDamage = 150f;
+        GameManager.Instance.weaponDamage = gunAttributes.weaponDamage;
     }
 
     void Update()

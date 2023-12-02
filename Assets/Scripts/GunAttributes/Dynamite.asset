@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d479f04d05094a42b018a5c3c1e800b, type: 3}
   m_Name: Dynamite
   m_EditorClassIdentifier: 
+  weaponName: Dynamite
   maxAmmo: 1
   reloadTime: 30
-  nextFire: 10.760249
+  nextFire: 9.178383
   fireRate: 3
+  weaponDamage: 150
+  enhancedDamage: 0

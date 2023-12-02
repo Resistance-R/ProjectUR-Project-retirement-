@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType{EXP, Lv, Kill, Time, HP, Sanity, curAmmo, maxAmmo}
+    public enum InfoType{EXP, Lv, Kill, Time, HP, Sanity, curAmmo, maxAmmo, selectedWeapon0 ,selectedWeapon1, selectedWeapon2}
     public InfoType type;
-
+    
     private PlayerController PC;
+    private bool lvUp = false;
 
     Text myText;
     Slider mySlider;
@@ -21,10 +22,18 @@ public class HUD : MonoBehaviour
 
     private void LateUpdate()
     {
+        lvUp = GameManager.Instance.isLvUp;
+        HUDControl();
+    }
 
-        switch (type) 
+    private void HUDControl()
+    {
+        switch (type)
         {
             case InfoType.EXP:
+                float curExp = GameManager.Instance.exp;
+                float maxExp = GameManager.Instance.nextExp[GameManager.Instance.level];
+                mySlider.value = curExp / maxExp;
 
                 break;
 
@@ -58,24 +67,57 @@ public class HUD : MonoBehaviour
 
             case InfoType.curAmmo:
 
-                    if(GameManager.Instance.isLive)
-                    {
-                        WeaponController activeWeapon = FindObjectOfType<WeaponController>();
-                        myText.text = activeWeapon.currentAmmo.ToString();
-                    }
+                if (GameManager.Instance.isLive)
+                {
+                    WeaponController activeWeapon = FindObjectOfType<WeaponController>();
+                    myText.text = activeWeapon.currentAmmo.ToString();
+                }
 
                 break;
 
             case InfoType.maxAmmo:
 
-                if(GameManager.Instance.isLive)
+                if (GameManager.Instance.isLive)
                 {
                     WeaponController activeWeaponMaxAmmo = GetActiveWeapon();
                     myText.text = activeWeaponMaxAmmo.gunAttributes.maxAmmo.ToString();
                 }
 
                 break;
-        }    
+
+            case InfoType.selectedWeapon0:
+
+                List<Weapon> randomWeapons0 = GameManager.Instance.selectedWeapons;
+
+                if(randomWeapons0.Count >= 3)
+                {
+                    myText.text = randomWeapons0[0].name;
+                }
+
+                break;
+
+            case InfoType.selectedWeapon1:
+
+                List<Weapon> randomWeapons1 = GameManager.Instance.selectedWeapons;
+
+                if (randomWeapons1.Count >= 3)
+                {
+                    myText.text = randomWeapons1[1].name;
+                }
+
+                break;
+
+            case InfoType.selectedWeapon2:
+
+                List<Weapon> randomWeapons2 = GameManager.Instance.selectedWeapons;
+
+                if (randomWeapons2.Count >= 3)
+                {
+                    myText.text = randomWeapons2[2].name;
+                }
+
+                break;
+        }
     }
 
     private WeaponController GetActiveWeapon()

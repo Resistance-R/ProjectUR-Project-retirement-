@@ -86,6 +86,8 @@ public class EnemyController : MonoBehaviour
             coll.enabled = false;
             anim.SetTrigger("Dead");
             DestroyShadow();
+            GameManager.Instance.kill++;
+            GameManager.Instance.GetEXP();
         }
     }
 

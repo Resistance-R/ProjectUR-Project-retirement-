@@ -10,7 +10,6 @@ public class WeaponController : MonoBehaviour
     private Coroutine reloadCoroutine;
 
     public string weaponType;
-    public float weaponDamage;
     public int currentAmmo;
     public GunAttributes gunAttributes;
 
@@ -29,6 +28,7 @@ public class WeaponController : MonoBehaviour
         gunSpriteRenderer = GetComponent<SpriteRenderer>();
         cameraScript = Camera.main.GetComponent<aboutCamera>();
         InitializeGun();
+        SetPlayerWeapon();
     }
 
     void Update()
@@ -137,6 +137,47 @@ public class WeaponController : MonoBehaviour
         gunAttributes.nextFire = 0f;
     }
 
+    void SetPlayerWeapon()
+    {
+        Weapon SARevolver = new Weapon();
+        SARevolver.name = "Single Action Revolver";
+        SARevolver.damage = gunAttributes.weaponDamage;
+        SARevolver.attributes = gunAttributes;
+
+        Weapon DARevolver = new Weapon();
+        DARevolver.name = "Double Action Revolver";
+        DARevolver.damage = gunAttributes.weaponDamage;
+        DARevolver.attributes = gunAttributes;
+
+        Weapon DBShotgun = new Weapon();
+        DBShotgun.name = "Double Barrel Shotgun";
+        DBShotgun.damage = gunAttributes.weaponDamage;
+        DBShotgun.attributes = gunAttributes;
+
+        Weapon PAShotgun = new Weapon();
+        PAShotgun.name = "Pump Action Shotgun";
+        PAShotgun.damage = gunAttributes.weaponDamage;
+        PAShotgun.attributes = gunAttributes;
+
+        Weapon LARifle = new Weapon();
+        LARifle.name = "Lever Action Rifle";
+        LARifle.damage = gunAttributes.weaponDamage;
+        LARifle.attributes = gunAttributes;
+
+        Weapon Dynamite = new Weapon();
+        Dynamite.name = "Dynamite";
+        Dynamite.maxAmmo = gunAttributes.maxAmmo;
+        Dynamite.attributes = gunAttributes;
+
+
+        GameManager.Instance.availableWeapons.Add(SARevolver);
+        GameManager.Instance.availableWeapons.Add(DARevolver);
+        GameManager.Instance.availableWeapons.Add(DBShotgun);
+        GameManager.Instance.availableWeapons.Add(PAShotgun);
+        GameManager.Instance.availableWeapons.Add(LARifle);
+        GameManager.Instance.availableWeapons.Add(Dynamite);
+    }
+
     public void StopReloadCoroutine()
     {
         if (reloadCoroutine != null)
@@ -160,7 +201,7 @@ public class WeaponController : MonoBehaviour
                 cameraScript.shakeMagnitude = 0.03f;
                 StartCoroutine(ShakeForDuration(0.05f));
                 Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-                GameManager.Instance.weaponDamage = 10f;
+                GameManager.Instance.weaponDamage = gunAttributes.weaponDamage;
             }
         }
 
@@ -172,7 +213,7 @@ public class WeaponController : MonoBehaviour
                 cameraScript.shakeMagnitude = 0.03f;
                 StartCoroutine(ShakeForDuration(0.05f));
                 Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-                GameManager.Instance.weaponDamage = 15f;
+                GameManager.Instance.weaponDamage = gunAttributes.weaponDamage;
             }
         }
 
@@ -193,7 +234,7 @@ public class WeaponController : MonoBehaviour
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     rb.velocity = bullet.transform.right * bulletSpeed;
                 }
-                GameManager.Instance.weaponDamage = 10f;
+                GameManager.Instance.weaponDamage = gunAttributes.weaponDamage;
                 cameraScript.shakeMagnitude = 0.04f;
                 StartCoroutine(ShakeForDuration(0.05f));
             }
@@ -216,7 +257,7 @@ public class WeaponController : MonoBehaviour
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     rb.velocity = bullet.transform.right * bulletSpeed;
                 }
-                GameManager.Instance.weaponDamage = 7f;
+                GameManager.Instance.weaponDamage = gunAttributes.weaponDamage;
                 cameraScript.shakeMagnitude = 0.04f;
                 StartCoroutine(ShakeForDuration(0.05f));
             }
@@ -230,7 +271,7 @@ public class WeaponController : MonoBehaviour
                 cameraScript.shakeMagnitude = 0.03f;
                 StartCoroutine(ShakeForDuration(0.05f));
                 Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-                GameManager.Instance.weaponDamage = 20f;
+                GameManager.Instance.weaponDamage = gunAttributes.weaponDamage;
             }
         }
 

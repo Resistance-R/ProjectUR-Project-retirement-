@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d479f04d05094a42b018a5c3c1e800b, type: 3}
   m_Name: PAShotgun
   m_EditorClassIdentifier: 
+  weaponName: PAShotgun
   maxAmmo: 7
   reloadTime: 3.5
-  nextFire: 0
+  nextFire: 10.49701
   fireRate: 0.3
+  weaponDamage: 7
+  enhancedDamage: 0
